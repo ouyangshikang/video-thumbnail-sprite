@@ -1,0 +1,24 @@
+{
+    "name": "video-thumbnail-sprite",
+    "version": "1.0.0",
+    "description": "视频取帧生成雪碧图",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ouyangshikang/video-thumbnail-sprite.git"
+    },
+    "keywords": ["video-thumbnail", "video-sprite"],
+    "author": "baituo",
+    "license": "MIT",
+    "files": [
+		"lib",
+		"README.md"
+	],
+    "bugs": {
+        "url": "https://github.com/ouyangshikang/video-thumbnail-sprite/issues"
+    },
+    "homepage": "https://github.com/ouyangshikang/video-thumbnail-sprite#readme"
+}
