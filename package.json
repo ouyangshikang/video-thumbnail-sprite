@@ -2,23 +2,44 @@
     "name": "video-thumbnail-sprite",
     "version": "1.0.0",
     "description": "视频取帧生成雪碧图",
-    "main": "index.js",
+    "main": "lib/index.cjs.js",
+    "module": "lib/index.es.js",
+    "browser": "lib/index.umd.js",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "dev": "rollup -c -w",
+        "build": "rimraf lib && rollup -c",
+        "build:ts": "rimraf lib && tsc"
     },
     "repository": {
         "type": "git",
         "url": "git+https://github.com/ouyangshikang/video-thumbnail-sprite.git"
     },
-    "keywords": ["video-thumbnail", "video-sprite"],
+    "keywords": [
+        "video-thumbnail",
+        "video-sprite",
+        "video"
+    ],
     "author": "baituo",
     "license": "MIT",
     "files": [
-		"lib",
-		"README.md"
-	],
+        "lib",
+        "README.md"
+    ],
     "bugs": {
         "url": "https://github.com/ouyangshikang/video-thumbnail-sprite/issues"
     },
-    "homepage": "https://github.com/ouyangshikang/video-thumbnail-sprite#readme"
+    "homepage": "https://github.com/ouyangshikang/video-thumbnail-sprite#readme",
+    "devDependencies": {
+        "@rollup/plugin-commonjs": "^17.0.0",
+        "@rollup/plugin-json": "^4.1.0",
+        "@rollup/plugin-node-resolve": "^11.0.1",
+        "rimraf": "^3.0.2",
+        "rollup": "^2.35.1",
+        "rollup-plugin-livereload": "^2.0.0",
+        "rollup-plugin-serve": "^1.1.0",
+        "rollup-plugin-terser": "^7.0.2",
+        "rollup-plugin-typescript2": "^0.29.0",
+        "typescript": "^4.1.3"
+    }
 }
