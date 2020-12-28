@@ -24,7 +24,7 @@ export class VideoThumbnail {
     private previewImages: string[]
 
     /**
-     * @param videoUrl 视频地址
+     * @param videoUrl - 视频地址
      */
     constructor(videoUrl: string) {
         if(!videoUrl) {
