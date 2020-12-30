@@ -4,10 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>video-thumbnail-sprite demo</title>
+    <style>
+        .time {
+            padding: 20px 0;
+        }
+    </style>
 </head>
 <body>
     <h3>视频取帧生成雪碧图</h3>
-    <!-- <input id='fileInput' type='file' accept='video/*'> -->
+    <input id="file" type='file' accept='video/*'>
+
+    <div class="time"></div>
     <div class="thumbnails"></div>
     <script src="./index.js" type="module"></script>
 </body>

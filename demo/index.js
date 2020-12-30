@@ -1,26 +1,36 @@
 import { VideoThumbnail } from '../lib/index.es.js';
 
-// 测试视频
-const video = 'https://gd-filems.dancf.com/mps-output/712778ba01364c9cbc334e0b0509ac4d/to-mp4/file.mp4';
-
-const videoThumbnail = new VideoThumbnail(video);
-
+const fileInput = document.getElementById('file');
 const thumbnailsNode = document.querySelector('.thumbnails');
+const timeNode = document.querySelector('.time');
 
 const renderThumbnails = (thumbnails) => {
+    thumbnailsNode.innerHTML = '';
+
     thumbnails.forEach(thumbnail => {
         const img = document.createElement('img');
         img.src = thumbnail.url;
         img.style.width = '150px';
         thumbnailsNode.appendChild(img);
     });
+    timeNode.innerHTML = `共${thumbnails.length}帧， 生成时间: ${time} ms`;
 };
 
-console.time('video');
-videoThumbnail.getThumbnails({
-    interval: 0.5,
-    scale: 0.5
-}).then(url => {
-    console.timeEnd('video');
-    renderThumbnails(url);
-})
+let time = 0;
+
+fileInput.addEventListener('change', () => {
+
+    const file = fileInput.files[0];
+    const videoUrl = URL.createObjectURL(file);
+    const videoThumbnail = new VideoThumbnail(videoUrl);
+
+    const startTime = new Date().getTime();
+
+    videoThumbnail.getThumbnails({
+        interval: 0.5,
+        scale: 0.5
+    }).then(thumbnails => {
+        time = new Date().getTime() - startTime;
+        renderThumbnails(thumbnails);
+    })
+});
